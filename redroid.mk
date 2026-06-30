@@ -120,12 +120,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_1.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
 
-#Allow build init_boot to get first_stage_init for android 17
+#Import generic_ramdisk to get first_stage_init for android 17
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
-BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 134217728
-BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_INIT_BOOT_HEADER_VERSION := 4
-BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # required by Settings
 PRODUCT_COPY_FILES += \
