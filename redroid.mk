@@ -120,7 +120,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_1.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     $(LOCAL_PATH)/redroid-removed-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/redroid-removed-permissions.xml \
-    $(LOCAL_PATH)/init.redroid.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.redroid.rc \
 
 #Allow build init_boot to get first_stage_init for android 17
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 134217728
