@@ -122,6 +122,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/redroid-removed-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/redroid-removed-permissions.xml \
     $(LOCAL_PATH)/init.redroid.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.redroid.rc \
 
+#Allow build init_boot to get first_stage_init for android 17
+BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 134217728
+BOARD_INIT_BOOT_HEADER_VERSION := 4
+BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
+
 # required by Settings
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
