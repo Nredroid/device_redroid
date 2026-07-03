@@ -113,7 +113,7 @@ PRODUCT_PACKAGES += \
 
 #Fix keymint
 PRODUCT_PACKAGES += \
-    android.hardware.security.keymint-service
+    android.hardware.security.keymint-service android.hidl.allocator@1.0-service
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
