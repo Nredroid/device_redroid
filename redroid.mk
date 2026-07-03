@@ -110,6 +110,9 @@ PRODUCT_PACKAGES += \
     primary_audio_policy_configuration.xml \
     surround_sound_configuration_5_0.xml \
 
+#Fix keymint
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint-service
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
