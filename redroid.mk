@@ -86,6 +86,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1-service \
     android.hardware.power-service.example \
     android.hardware.thermal@2.0-service.mock \
+    hwservicemanager \
 
 
 ifneq ($(REDROID_DISABLE_OMX),true)
