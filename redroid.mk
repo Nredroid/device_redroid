@@ -92,9 +92,7 @@ PRODUCT_PACKAGES += \
 ifneq ($(REDROID_DISABLE_OMX),true)
 $(call inherit-product, hardware/redroid/omx/omx.mk)
 endif
-
-$(call inherit-product, hardware/redroid/c2/c2.mk)
-
+$(call inherit-product, $(LOCAL_PATH)/c2/c2.mk)
 
 DEVICE_MANIFEST_FILE += device/redroid/android.hardware.bluetooth@1.1.xml
 
