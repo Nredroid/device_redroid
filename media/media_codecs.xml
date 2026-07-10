@@ -78,6 +78,18 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <MediaCodecs>
+    <Encoders>
+        <MediaCodec name="c2.android.avc.encoder" type="video/avc">
+                <Limit name="size" min="96x96" max="1920x1080" />
+                <Limit name="alignment" value="2x2" />
+                <Limit name="block-size" value="16x16" />
+                <Limit name="blocks-per-second" min="1" max="244800" />
+                <Limit name="bitrate" range="1-20000000" />
+                <Limit name="frame-rate" range="1-60" />
+                <Feature name="bitrate-modes" value="VBR,CBR" />
+           </MediaCodec>
+    </Encoders>
+
     <Include href="media_codecs_google_audio.xml" />
     <Include href="media_codecs_google_telephony.xml" />
     <Include href="media_codecs_google_video.xml" />
