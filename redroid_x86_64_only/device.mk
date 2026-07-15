@@ -6,4 +6,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.dalvik.vm.isa.arm64=x86_64 \
     ro.dalvik.vm.native.bridge=libnb.so \
 
-$(call inherit-product, device/redroid-prebuilts/prebuilts_x86.mk)
