@@ -80,9 +80,9 @@ PRODUCT_PACKAGES += \
     vulkan.lvp \
     vulkan.virtio
 
-PRODUCT_PACKAGES += i965_drv_video iHD_drv_video
 
 ifneq ($(filter %_x86 %_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += i965_drv_video iHD_drv_video
 PRODUCT_PACKAGES += \
     vulkan.intel \
     vulkan.intel_hasvk \
