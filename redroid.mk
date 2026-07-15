@@ -54,6 +54,47 @@ PRODUCT_PACKAGES += \
     libGLESv1_CM_angle \
     libGLESv2_angle \
     vulkan.pastel \
+# Mesa3d
+
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@4.0-service.minigbm_dmabuf \
+    android.hardware.graphics.mapper@4.0-impl.minigbm_dmabuf \
+    gralloc.minigbm_dmabuf
+
+
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@4.0-service.minigbm \
+    android.hardware.graphics.allocator@4.0-service.minigbm_gbm_mesa \
+    android.hardware.graphics.mapper@4.0-impl.minigbm \
+    android.hardware.graphics.mapper@4.0-impl.minigbm_gbm_mesa \
+    gralloc.minigbm \
+    gralloc.minigbm_gbm_mesa
+
+PRODUCT_PACKAGES += \
+    dri_gbm \
+    libEGL_mesa \
+    libGLESv1_CM_mesa \
+    libGLESv2_mesa \
+    libgallium_dri \
+    libgbm_mesa_wrapper \
+    vulkan.lvp \
+    vulkan.virtio
+
+ifneq ($(filter %_x86 %_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    vulkan.intel \
+    vulkan.intel_hasvk \
+    vulkan.radeon \
+    vulkan.nouveau
+else
+PRODUCT_PACKAGES += \
+    vulkan.freedreno \
+    vulkan.broadcom \
+    vulkan.panfrost
+endif
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
 
 # Phone App required
@@ -93,7 +134,8 @@ $(call inherit-product, $(LOCAL_PATH)/c2/c2.mk)
 DEVICE_MANIFEST_FILE += device/redroid/android.hardware.bluetooth@1.1.xml
 
 PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.sim
-
+#Bootloader
+TARGET_NO_BOOTLOADER := true
 
 PRODUCT_SOONG_NAMESPACES += frameworks/av/services/audiopolicy/config
 # audio policy
@@ -125,10 +167,25 @@ PRODUCT_COPY_FILES += \
 
 #Import generic_ramdisk to get first_stage_init for android 17
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+# Camera
+USE_CAMERA_V4L2_HAL := true
+
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.7-external-service \
+    camera.v4l2
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/camera/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 # required by Settings
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
+# build Mesa3d
+BOARD_MESA3D_USES_MESON_BUILD := true
+BOARD_MESA3D_MESON_ARGS := -Dallow-kcmp=enabled -Dmesa-clc=system -Dprecomp-compiler=system
+BOARD_MESA3D_BUILD_LIBGBM := true
+BOARD_MESA3D_GALLIUM_DRIVERS := llvmpipe svga virgl radeonsi zink
+BOARD_MESA3D_VULKAN_DRIVERS := swrast virtio amd
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
