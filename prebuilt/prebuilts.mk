@@ -40,7 +40,7 @@ include $$(CLEAR_VARS)
 LOCAL_MODULE := amdgpu.ids.redroid
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := prebuilts/$$(TARGET_ARCH)/share/libdrm/amdgpu.ids
+LOCAL_SRC_FILES := prebuilts/share/libdrm/amdgpu.ids
 LOCAL_MODULE_RELATIVE_PATH := hwdata
 LOCAL_PROPRIETARY_MODULE := true
 include $$(BUILD_PREBUILT)
