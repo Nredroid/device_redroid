@@ -42,31 +42,18 @@ endef
 # $(4): relative install dir
 # $(5): create symbolic links
 # $(6): depend modules
-define define-redroid-prebuilt-etc
+define amdgpu-gpu-ids
 include $$(CLEAR_VARS)
-LOCAL_MODULE := $1
-ifneq ($2,)
-LOCAL_INSTALLED_MODULE_STEM := $2
-endif
-
-ifneq ($3,)
-src := $3
-else
-src := $1
-endif
+LOCAL_MODULE := amdgpu.ids.redroid
+src := libdrm/amdgpu.ids
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := prebuilts/$$(TARGET_ARCH)/share/$$(src)
-LOCAL_MODULE_RELATIVE_PATH := $4
+LOCAL_MODULE_RELATIVE_PATH := hwdata
 LOCAL_PROPRIETARY_MODULE := true
-LOCAL_MODULE_SYMLINKS := $5
-LOCAL_REQUIRED_MODULES := $6
 include $$(BUILD_PREBUILT)
 endef
-
-## amdgpu.ids
-$(eval $(call define-redroid-prebuilt-etc,amdgpu.ids.redroid,,libdrm/amdgpu.ids,hwdata))
-
+$(eval $(call amdgpu-gpu-ids))
 ## VA
 ifeq (,$(filter $(PLATFORM_VERSION), 15 16 17))
 va_libs := libva-drm.so
