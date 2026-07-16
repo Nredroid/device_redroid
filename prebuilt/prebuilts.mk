@@ -35,29 +35,18 @@ LOCAL_REQUIRED_MODULES := $6
 include $$(BUILD_PREBUILT)
 endef
 
-# $(1): module name; required
-# $(2): module stem name if non-empty
-# $(3): source file name 
-# $(4): relative install dir
-# $(5): create symbolic links
-# $(6): depend modules
 define amdgpu-gpu-ids
 include $$(CLEAR_VARS)
 LOCAL_MODULE := amdgpu.ids.redroid
-src := libdrm/amdgpu.ids
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := prebuilts/$$(TARGET_ARCH)/share/$$(src)
+LOCAL_SRC_FILES := prebuilts/$$(TARGET_ARCH)/share/libdrm/amdgpu.ids
 LOCAL_MODULE_RELATIVE_PATH := hwdata
 LOCAL_PROPRIETARY_MODULE := true
 include $$(BUILD_PREBUILT)
 endef
-## VA
-ifeq (,$(filter $(PLATFORM_VERSION), 15 16 17))
-va_libs := libva-drm.so
-$(foreach lib,$(va_libs),\
-    $(eval $(call define-redroid-prebuilt-lib,$(lib),$(lib),,,,$(drm_libs))))
-endif
+# VA
+$(eval $(call define-redroid-prebuilt-lib,libva-drm.so,libva-drm.so,,,,))
 
 # redroid audio
 $(eval $(call define-redroid-prebuilt-lib,audio.primary.redroid,,hw/audio.primary.redroid.so,hw))
