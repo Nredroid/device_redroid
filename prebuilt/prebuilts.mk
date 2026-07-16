@@ -1,23 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 
-# $(1): module name; required
-# $(2): module stem name if non-empty
-# $(3): source file name 
-# $(4): relative install dir
-# $(5): create symbolic links
-# $(6): depend modules
-define define-redroid-prebuilt-lib
+define hwcomposer-redroid
 include $$(CLEAR_VARS)
-LOCAL_MODULE := $1
-ifneq ($2,)
-LOCAL_INSTALLED_MODULE_STEM := $2
-endif
-
-ifneq ($3,)
-src := $3
-else
-src := $1
-endif
+LOCAL_MODULE := hwcomposer.redroid
+src := hw/hwcomposer.redroid.so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/$$(src)
@@ -26,12 +12,10 @@ LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/$$(src)
 endif
 #LOCAL_STRIP_MODULE := false
 LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_RELATIVE_PATH := $4
+LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MULTILIB := both
 LOCAL_PROPRIETARY_MODULE := true
-LOCAL_MODULE_SYMLINKS := $5
 LOCAL_CHECK_ELF_FILES := false
-LOCAL_REQUIRED_MODULES := $6
 include $$(BUILD_PREBUILT)
 endef
 
@@ -45,14 +29,45 @@ LOCAL_MODULE_RELATIVE_PATH := hwdata
 LOCAL_PROPRIETARY_MODULE := true
 include $$(BUILD_PREBUILT)
 endef
-# VA
-$(eval $(call define-redroid-prebuilt-lib,libva-drm.so,libva-drm.so,,,,))
 
-# redroid audio
-$(eval $(call define-redroid-prebuilt-lib,audio.primary.redroid,,hw/audio.primary.redroid.so,hw))
+define va
+include $$(CLEAR_VARS)
+LOCAL_MODULE := libva-drm.so
+LOCAL_INSTALLED_MODULE_STEM := libva-drm.so
+src := libva-drm.so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/$$(src)
+ifneq ($$(TARGET_2ND_ARCH),)
+LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/$$(src)
+endif
+#LOCAL_STRIP_MODULE := false
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MULTILIB := both
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_CHECK_ELF_FILES := false
+include $$(BUILD_PREBUILT)
+endef
 
-# redroid hwcomposer
-$(eval $(call define-redroid-prebuilt-lib,hwcomposer.redroid,,hw/hwcomposer.redroid.so,hw))
+define redroid-audio
+include $$(CLEAR_VARS)
+LOCAL_MODULE := audio.primary.redroid
+src := hw/audio.primary.redroid.so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/$$(src)
+ifneq ($$(TARGET_2ND_ARCH),)
+LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/$$(src)
+endif
+#LOCAL_STRIP_MODULE := false
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_MULTILIB := both
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_CHECK_ELF_FILES := false
+include $$(BUILD_PREBUILT)
+endef
+
 
 define uinputd-binary
 include $$(CLEAR_VARS)
@@ -70,3 +85,6 @@ endef
 
 $(eval $(call uinputd-binary))
 $(eval $(call amdgpu-gpu-ids))
+$(eval $(call va))
+$(eval $(call redroid-audio))
+$(eval $(call hwcomposer-redroid))
