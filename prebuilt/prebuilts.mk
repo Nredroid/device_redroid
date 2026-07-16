@@ -1,5 +1,4 @@
 LOCAL_PATH := $(call my-dir)
-
 define hwcomposer-redroid
 include $$(CLEAR_VARS)
 LOCAL_MODULE := hwcomposer.redroid
@@ -18,7 +17,6 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
 include $$(BUILD_PREBUILT)
 endef
-
 define amdgpu-gpu-ids
 include $$(CLEAR_VARS)
 LOCAL_MODULE := amdgpu.ids.redroid
@@ -29,7 +27,6 @@ LOCAL_MODULE_RELATIVE_PATH := hwdata
 LOCAL_PROPRIETARY_MODULE := true
 include $$(BUILD_PREBUILT)
 endef
-
 define va
 include $$(CLEAR_VARS)
 LOCAL_MODULE := libva-drm.so
@@ -48,7 +45,6 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
 include $$(BUILD_PREBUILT)
 endef
-
 define redroid-audio
 include $$(CLEAR_VARS)
 LOCAL_MODULE := audio.primary.redroid
@@ -67,8 +63,6 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
 include $$(BUILD_PREBUILT)
 endef
-
-
 define uinputd-binary
 include $$(CLEAR_VARS)
 LOCAL_MODULE := uinputd
@@ -82,7 +76,6 @@ LOCAL_CHECK_ELF_FILES := false
 LOCAL_INIT_RC := prebuilts/$$(TARGET_ARCH)/share/uinputd/uinputd.rc
 include $$(BUILD_PREBUILT)
 endef
-
 $(eval $(call uinputd-binary))
 $(eval $(call amdgpu-gpu-ids))
 $(eval $(call va))
