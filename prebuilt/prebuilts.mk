@@ -2,12 +2,11 @@ LOCAL_PATH := $(call my-dir)
 define hwcomposer-redroid
 include $$(CLEAR_VARS)
 LOCAL_MODULE := hwcomposer.redroid
-src := hw/hwcomposer.redroid.so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/$$(src)
+LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/hw/hwcomposer.redroid.so
 ifneq ($$(TARGET_2ND_ARCH),)
-LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/$$(src)
+LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/hw/hwcomposer.redroid.so
 endif
 #LOCAL_STRIP_MODULE := false
 LOCAL_MODULE_SUFFIX := .so
@@ -31,12 +30,11 @@ define va
 include $$(CLEAR_VARS)
 LOCAL_MODULE := libva-drm.so
 LOCAL_INSTALLED_MODULE_STEM := libva-drm.so
-src := libva-drm.so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/$$(src)
+LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/libva-drm.so
 ifneq ($$(TARGET_2ND_ARCH),)
-LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/$$(src)
+LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/libva-drm.so
 endif
 #LOCAL_STRIP_MODULE := false
 LOCAL_MODULE_SUFFIX := .so
@@ -48,12 +46,11 @@ endef
 define redroid-audio
 include $$(CLEAR_VARS)
 LOCAL_MODULE := audio.primary.redroid
-src := hw/audio.primary.redroid.so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/$$(src)
+LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/hw/audio.primary.redroid.so
 ifneq ($$(TARGET_2ND_ARCH),)
-LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/$$(src)
+LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/hw/audio.primary.redroid.so
 endif
 #LOCAL_STRIP_MODULE := false
 LOCAL_MODULE_SUFFIX := .so
