@@ -79,6 +79,7 @@ PRODUCT_PACKAGES += \
     libGLESv1_CM_mesa \
     libGLESv2_mesa \
     libgallium_dri \
+    libgallium_drv_video \
     libgbm_mesa_wrapper \
     vulkan.lvp \
     vulkan.virtio
