@@ -64,13 +64,6 @@ LOCAL_REQUIRED_MODULES := $6
 include $$(BUILD_PREBUILT)
 endef
 
-# DRI
-ifneq (,$(filter $(TARGET_ARCH),x86 x86_64))
-ifeq (,$(filter $(PLATFORM_VERSION), 15 16 17))
-$(eval $(call define-redroid-prebuilt-lib,libigdgmm,,libigdgmm.so))
-endif
-endif
-
 ## amdgpu.ids
 $(eval $(call define-redroid-prebuilt-etc,amdgpu.ids.redroid,,libdrm/amdgpu.ids,hwdata))
 
