@@ -35,7 +35,6 @@ LOCAL_REQUIRED_MODULES := $6
 include $$(BUILD_PREBUILT)
 endef
 
-
 # $(1): module name; required
 # $(2): module stem name if non-empty
 # $(3): source file name 
@@ -53,7 +52,6 @@ LOCAL_MODULE_RELATIVE_PATH := hwdata
 LOCAL_PROPRIETARY_MODULE := true
 include $$(BUILD_PREBUILT)
 endef
-$(eval $(call amdgpu-gpu-ids))
 ## VA
 ifeq (,$(filter $(PLATFORM_VERSION), 15 16 17))
 va_libs := libva-drm.so
@@ -67,24 +65,19 @@ $(eval $(call define-redroid-prebuilt-lib,audio.primary.redroid,,hw/audio.primar
 # redroid hwcomposer
 $(eval $(call define-redroid-prebuilt-lib,hwcomposer.redroid,,hw/hwcomposer.redroid.so,hw))
 
-# $(1): module name (and file name)
-# $(2): depended modules
-# $(3): init.rc
-define define-redroid-prebuilt-bin
+define uinputd-binary
 include $$(CLEAR_VARS)
-LOCAL_MODULE := $1
+LOCAL_MODULE := uinputd
 LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/bin/$1
+LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/bin/uinputd
 #LOCAL_STRIP_MODULE := false
 LOCAL_MULTILIB := first
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
-LOCAL_REQUIRED_MODULES := $2
-ifneq ($3,)
-LOCAL_INIT_RC := prebuilts/$$(TARGET_ARCH)/share/$3
-endif
+LOCAL_INIT_RC := prebuilts/$$(TARGET_ARCH)/share/uinputd/uinputd.rc
 include $$(BUILD_PREBUILT)
 endef
 
-$(eval $(call define-redroid-prebuilt-bin,uinputd,$(evdev_libs),uinputd/uinputd.rc))
+$(eval $(call uinputd-binary))
+$(eval $(call amdgpu-gpu-ids))
