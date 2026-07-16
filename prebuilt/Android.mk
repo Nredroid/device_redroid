@@ -61,7 +61,6 @@ $(foreach lib,$(va_libs),\
     $(eval $(call define-redroid-prebuilt-lib,$(lib),$(lib),,,,$(drm_libs))))
 endif
 
-
 # redroid audio
 $(eval $(call define-redroid-prebuilt-lib,audio.primary.redroid,,hw/audio.primary.redroid.so,hw))
 
