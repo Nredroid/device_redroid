@@ -1,1 +1,0 @@
-PRODUCT_COPY_FILES += device/redroid/c2/redroid.c2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/redroid.c2.rc

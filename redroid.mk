@@ -114,7 +114,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
 
-
+PRODUCT_COPY_FILES += device/redroid/c2/redroid.c2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/redroid.c2.rc
 # required HIDL
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
