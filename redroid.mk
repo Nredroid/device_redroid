@@ -54,6 +54,9 @@ PRODUCT_PACKAGES += \
     libGLESv1_CM_angle \
     libGLESv2_angle \
     vulkan.pastel \
+    libva \
+    libva-android \
+    libdrm \
 # Mesa3d
 
 PRODUCT_PACKAGES += \
