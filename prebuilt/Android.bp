@@ -6,29 +6,6 @@ prebuilt_etc {
     src: "share/libdrm/amdgpu.ids",
 }
 
-cc_prebuilt_library_shared {
-    name: "libva-drm.so",
-
-    arch: {
-        x86_64: {
-            srcs: ["x86_64/lib/libva-drm.so"],
-        },
-        x86: {
-            srcs: ["x86/lib/libva-drm.so"],
-        },
-        arm: {
-            srcs: ["arm/lib/libva-drm.so"],
-        },
-        arm64: {
-            srcs: ["aarch64/lib/libva-drm.so"],
-        },
-    },
-
-
-    compile_multilib: "both",
-    proprietary: true,
-    check_elf_files: false,
-}
 
 cc_prebuilt_library_shared {
     name: "audio.primary.redroid",
@@ -55,18 +32,3 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
 }
 
-cc_prebuilt_binary {
-    name: "uinputd",
-    arch: {
-        x86_64: {
-            srcs: ["x86_64/bin/uinputd"],
-        },
-        arm64: {
-            srcs: ["aarch64/bin/uinputd"],
-        }
-    },
-    compile_multilib: "first",
-    proprietary: true,
-    check_elf_files: false,
-    init_rc: ["share/uinputd/uinputd.rc"],
-}
