@@ -18,7 +18,6 @@ LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/libva-drm.so
 ifneq ($$(TARGET_2ND_ARCH),)
 LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/libva-drm.so
 endif
-#LOCAL_STRIP_MODULE := false
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MULTILIB := both
 LOCAL_PROPRIETARY_MODULE := true
@@ -33,7 +32,6 @@ LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/hw/audio.primar
 ifneq ($$(TARGET_2ND_ARCH),)
 LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/hw/audio.primary.redroid.so
 endif
-#LOCAL_STRIP_MODULE := false
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MULTILIB := both
@@ -45,7 +43,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := uinputd
 LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_SRC_FILES_$(TARGET_ARCH) := prebuilts/$(TARGET_ARCH)/bin/uinputd
-#LOCAL_STRIP_MODULE := false
 LOCAL_MULTILIB := first
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
