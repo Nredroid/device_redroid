@@ -54,7 +54,7 @@ LOCAL_MULTILIB := first
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CHECK_ELF_FILES := false
-LOCAL_INIT_RC := prebuilts/$$(TARGET_ARCH)/share/uinputd/uinputd.rc
+LOCAL_INIT_RC := prebuilts/share/uinputd/uinputd.rc
 include $$(BUILD_PREBUILT)
 endef
 $(eval $(call uinputd-binary))
