@@ -14,10 +14,11 @@ LOCAL_MODULE := libva-drm.so
 LOCAL_INSTALLED_MODULE_STEM := libva-drm.so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_$(TARGET_ARCH) := prebuilts/$(TARGET_ARCH)/lib/libva-drm.so
-ifneq ($(TARGET_2ND_ARCH),)
-LOCAL_SRC_FILES_$(TARGET_2ND_ARCH) := prebuilts/$(TARGET_2ND_ARCH)/lib/libva-drm.so
-endif
+LOCAL_SRC_FILES_x86_64 := prebuilts/x86_64/lib/libva-drm.so
+LOCAL_SRC_FILES_x86 := prebuilts/x86/lib/libva-drm.so
+LOCAL_SRC_FILES_arm := prebuilts/arm/lib/libva-drm.so
+LOCAL_SRC_FILES_arm64 := prebuilts/aarch64/lib/libva-drm.so
+LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/lib/libva-drm.so
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MULTILIB := both
 LOCAL_PROPRIETARY_MODULE := true
@@ -28,10 +29,11 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := audio.primary.redroid
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_$(TARGET_ARCH) := prebuilts/$(TARGET_ARCH)/lib/hw/audio.primary.redroid.so
-ifneq ($(TARGET_2ND_ARCH),)
-LOCAL_SRC_FILES_$(TARGET_2ND_ARCH) := prebuilts/$(TARGET_2ND_ARCH)/lib/hw/audio.primary.redroid.so
-endif
+LOCAL_SRC_FILES_x86_64 := prebuilts/x86_64/lib/hw/audio.primary.redroid.so
+LOCAL_SRC_FILES_x86 := prebuilts/x86/lib/hw/audio.primary.redroid.so
+LOCAL_SRC_FILES_arm := prebuilts/arm/lib/hw/audio.primary.redroid.so
+LOCAL_SRC_FILES_arm64 := prebuilts/aarch64/lib/hw/audio.primary.redroid.so
+LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/lib/hw/audio.primary.redroid.so
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MULTILIB := both
@@ -42,7 +44,8 @@ include $(BUILD_PREBUILT)
 include $(CLEAR_VARS)
 LOCAL_MODULE := uinputd
 LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES_$(TARGET_ARCH) := prebuilts/$(TARGET_ARCH)/bin/uinputd
+LOCAL_SRC_FILES_x86_64 := prebuilts/x86_64/bin/uinputd
+LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/bin/uinputd
 LOCAL_MULTILIB := first
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
