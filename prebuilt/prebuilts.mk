@@ -1,21 +1,5 @@
 LOCAL_PATH := $(call my-dir)
-define hwcomposer-redroid
-include $$(CLEAR_VARS)
-LOCAL_MODULE := hwcomposer.redroid
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_$$(TARGET_ARCH) := prebuilts/$$(TARGET_ARCH)/lib/hw/hwcomposer.redroid.so
-ifneq ($$(TARGET_2ND_ARCH),)
-LOCAL_SRC_FILES_$$(TARGET_2ND_ARCH) := prebuilts/$$(TARGET_2ND_ARCH)/lib/hw/hwcomposer.redroid.so
-endif
-#LOCAL_STRIP_MODULE := false
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_MULTILIB := both
-LOCAL_PROPRIETARY_MODULE := true
-LOCAL_CHECK_ELF_FILES := false
-include $$(BUILD_PREBUILT)
-endef
+
 define amdgpu-gpu-ids
 include $$(CLEAR_VARS)
 LOCAL_MODULE := amdgpu.ids.redroid
@@ -77,4 +61,3 @@ $(eval $(call uinputd-binary))
 $(eval $(call amdgpu-gpu-ids))
 $(eval $(call va))
 $(eval $(call redroid-audio))
-$(eval $(call hwcomposer-redroid))
