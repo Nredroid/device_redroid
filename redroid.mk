@@ -135,9 +135,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.mock \
     hwservicemanager \
 
-
-$(call inherit-product, $(LOCAL_PATH)/c2/c2.mk)
-
 DEVICE_MANIFEST_FILE += device/redroid/android.hardware.bluetooth@1.1.xml
 
 PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.sim
