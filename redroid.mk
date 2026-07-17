@@ -201,9 +201,7 @@ $(call inherit-product, vendor/redroid/vendor.mk)
 
 PRODUCT_PACKAGES += \
     amdgpu.ids.redroid \
-    gralloc.cros \
     gralloc.gbm \
-    uinputd \
     hwcomposer.redroid \
     libdrm_amdgpu \
     libdrm_radeon \
@@ -215,7 +213,6 @@ PRODUCT_PACKAGES += \
     libevdev \
     libigdgmm_android \
     audio.primary.redroid \
-    libva-drm.so
 
 # vaapi
 PRODUCT_PACKAGES += avcenc h264encode hevcencode jpegenc vp8enc vp9enc vainfo
