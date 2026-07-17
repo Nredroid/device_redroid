@@ -1,0 +1,81 @@
+
+
+prebuilt_etc {
+    name: "amdgpu.ids.redroid",
+
+    relative_install_path: "hwdata",
+    proprietary: true,
+    src: "prebuilts/share/libdrm/amdgpu.ids",
+
+}
+
+cc_prebuilt_library_shared {
+    name: "libva-drm.so",
+    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_INSTALLED_MODULE_STEM
+    // LOCAL_INSTALLED_MODULE_STEM := libva-drm.so
+
+    arch: {
+        x86_64: {
+            srcs: ["prebuilts/x86_64/lib/libva-drm.so"],
+        },
+        x86: {
+            srcs: ["prebuilts/x86/lib/libva-drm.so"],
+        },
+        arm: {
+            srcs: ["prebuilts/arm/lib/libva-drm.so"],
+        },
+        arm64: {
+            srcs: ["prebuilts/aarch64/lib/libva-drm.so"],
+        },
+    },
+    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_SRC_FILES_aarch64
+    // LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/lib/libva-drm.so
+
+    compile_multilib: "both",
+    proprietary: true,
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "audio.primary.redroid",
+
+    arch: {
+        x86_64: {
+            srcs: ["prebuilts/x86_64/lib/hw/audio.primary.redroid.so"],
+        },
+        x86: {
+            srcs: ["prebuilts/x86/lib/hw/audio.primary.redroid.so"],
+        },
+        arm: {
+            srcs: ["prebuilts/arm/lib/hw/audio.primary.redroid.so"],
+        },
+        arm64: {
+            srcs: ["prebuilts/aarch64/lib/hw/audio.primary.redroid.so"],
+        },
+    },
+    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_SRC_FILES_aarch64
+    // LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/lib/hw/audio.primary.redroid.so
+
+    relative_install_path: "hw",
+    compile_multilib: "both",
+    proprietary: true,
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "uinputd",
+
+    arch: {
+        x86_64: {
+            srcs: ["prebuilts/x86_64/bin/uinputd"],
+        },
+    },
+    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_SRC_FILES_aarch64
+    // LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/bin/uinputd
+
+    compile_multilib: "first",
+
+    proprietary: true,
+    check_elf_files: false,
+    init_rc: ["prebuilts/share/uinputd/uinputd.rc"],
+}
