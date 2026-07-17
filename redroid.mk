@@ -209,7 +209,6 @@ PRODUCT_PACKAGES += \
     gralloc.cros \
     gralloc.gbm \
     uinputd \
-    vncserver \
     hwcomposer.redroid \
     libdrm_amdgpu \
     libdrm_radeon \
