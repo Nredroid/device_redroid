@@ -199,7 +199,6 @@ $(call inherit-product-if-exists, product.mk)
 
 $(call inherit-product, vendor/redroid/vendor.mk)
 
-$(call inherit-product, device/redroid/prebuilt/prebuilts.mk)
 
 PRODUCT_PACKAGES += \
     amdgpu.ids.redroid \
