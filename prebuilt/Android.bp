@@ -1,12 +1,9 @@
 
-
 prebuilt_etc {
     name: "amdgpu.ids.redroid",
-
     relative_install_path: "hwdata",
     proprietary: true,
-    src: "prebuilts/share/libdrm/amdgpu.ids",
-
+    src: "share/libdrm/amdgpu.ids",
 }
 
 cc_prebuilt_library_shared {
@@ -14,16 +11,16 @@ cc_prebuilt_library_shared {
 
     arch: {
         x86_64: {
-            srcs: ["prebuilts/x86_64/lib/libva-drm.so"],
+            srcs: ["x86_64/lib/libva-drm.so"],
         },
         x86: {
-            srcs: ["prebuilts/x86/lib/libva-drm.so"],
+            srcs: ["x86/lib/libva-drm.so"],
         },
         arm: {
-            srcs: ["prebuilts/arm/lib/libva-drm.so"],
+            srcs: ["arm/lib/libva-drm.so"],
         },
         arm64: {
-            srcs: ["prebuilts/aarch64/lib/libva-drm.so"],
+            srcs: ["aarch64/lib/libva-drm.so"],
         },
     },
 
@@ -38,16 +35,16 @@ cc_prebuilt_library_shared {
 
     arch: {
         x86_64: {
-            srcs: ["prebuilts/x86_64/lib/hw/audio.primary.redroid.so"],
+            srcs: ["x86_64/lib/hw/audio.primary.redroid.so"],
         },
         x86: {
-            srcs: ["prebuilts/x86/lib/hw/audio.primary.redroid.so"],
+            srcs: ["x86/lib/hw/audio.primary.redroid.so"],
         },
         arm: {
-            srcs: ["prebuilts/arm/lib/hw/audio.primary.redroid.so"],
+            srcs: ["arm/lib/hw/audio.primary.redroid.so"],
         },
         arm64: {
-            srcs: ["prebuilts/aarch64/lib/hw/audio.primary.redroid.so"],
+            srcs: ["aarch64/lib/hw/audio.primary.redroid.so"],
         },
     },
 
@@ -62,14 +59,14 @@ cc_prebuilt_binary {
     name: "uinputd",
     arch: {
         x86_64: {
-            srcs: ["prebuilts/x86_64/bin/uinputd"],
+            srcs: ["x86_64/bin/uinputd"],
         },
         arm64: {
-            srcs: ["prebuilts/aarch64/bin/uinputd"],
+            srcs: ["aarch64/bin/uinputd"],
         }
     },
     compile_multilib: "first",
     proprietary: true,
     check_elf_files: false,
-    init_rc: ["prebuilts/share/uinputd/uinputd.rc"],
+    init_rc: ["share/uinputd/uinputd.rc"],
 }
