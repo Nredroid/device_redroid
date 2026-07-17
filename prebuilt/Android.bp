@@ -11,8 +11,6 @@ prebuilt_etc {
 
 cc_prebuilt_library_shared {
     name: "libva-drm.so",
-    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_INSTALLED_MODULE_STEM
-    // LOCAL_INSTALLED_MODULE_STEM := libva-drm.so
 
     arch: {
         x86_64: {
@@ -28,8 +26,7 @@ cc_prebuilt_library_shared {
             srcs: ["prebuilts/aarch64/lib/libva-drm.so"],
         },
     },
-    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_SRC_FILES_aarch64
-    // LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/lib/libva-drm.so
+
 
     compile_multilib: "both",
     proprietary: true,
@@ -53,8 +50,7 @@ cc_prebuilt_library_shared {
             srcs: ["prebuilts/aarch64/lib/hw/audio.primary.redroid.so"],
         },
     },
-    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_SRC_FILES_aarch64
-    // LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/lib/hw/audio.primary.redroid.so
+
 
     relative_install_path: "hw",
     compile_multilib: "both",
@@ -64,17 +60,15 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_binary {
     name: "uinputd",
-
     arch: {
         x86_64: {
             srcs: ["prebuilts/x86_64/bin/uinputd"],
         },
+        arm64: {
+            srcs: ["prebuilts/aarch64/bin/uinputd"],
+        }
     },
-    // ANDROIDMK TRANSLATION ERROR: unsupported assignment to LOCAL_SRC_FILES_aarch64
-    // LOCAL_SRC_FILES_aarch64 := prebuilts/aarch64/bin/uinputd
-
     compile_multilib: "first",
-
     proprietary: true,
     check_elf_files: false,
     init_rc: ["prebuilts/share/uinputd/uinputd.rc"],
