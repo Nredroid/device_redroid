@@ -201,10 +201,6 @@ $(call inherit-product, vendor/redroid/vendor.mk)
 
 PRODUCT_PACKAGES += \
     amdgpu.ids.redroid \
-    vulkan.broadcom \
-    vulkan.freedreno \
-    vulkan.radeon \
-    vulkan.nouveau \
     gralloc.cros \
     gralloc.gbm \
     uinputd \
