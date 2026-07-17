@@ -150,8 +150,7 @@ PRODUCT_PACKAGES += \
     default_volume_tables.xml \
     primary_audio_policy_configuration.xml \
     surround_sound_configuration_5_0.xml \
-#Support Battery
-PRODUCT_PACKAGES += android.hardware.health-service.example
+
 #Fix keymint
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint-service android.hidl.allocator@1.0-service
