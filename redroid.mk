@@ -220,7 +220,9 @@ PRODUCT_PACKAGES += \
     libdrm_intel \
     libglapi \
     libevdev \
-    libigdgmm_android
+    libigdgmm_android \
+    audio.primary.redroid \
+    libva-drm.so
 
 # vaapi
 PRODUCT_PACKAGES += avcenc h264encode hevcencode jpegenc vp8enc vp9enc vainfo
