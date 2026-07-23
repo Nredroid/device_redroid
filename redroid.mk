@@ -173,12 +173,6 @@ PRODUCT_COPY_FILES += \
 #Import generic_ramdisk to get first_stage_init for android 17
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # Camera
-USE_CAMERA_V4L2_HAL := true
-
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.7-external-service \
-    camera.v4l2
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
