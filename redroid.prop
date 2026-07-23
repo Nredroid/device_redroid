@@ -3,3 +3,7 @@ ro.hardware=redroid
 ro.cold_boot_done=true
 persist.sys.fuse=1
 ro.radio.noril=yes
+
+debug.stagefright.c2inputsurface=-1
+debug.stagefright.ccodec=4
+debug.c2.use_dmabufheaps=1
