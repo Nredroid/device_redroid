@@ -12,16 +12,16 @@ cc_prebuilt_library_shared {
 
     arch: {
         x86_64: {
-            srcs: ["x86_64/lib/hw/audio.primary.redroid.so"],
+            srcs: ["x86_64/audio.primary.redroid.so"],
         },
         x86: {
-            srcs: ["x86/lib/hw/audio.primary.redroid.so"],
+            srcs: ["x86/audio.primary.redroid.so"],
         },
         arm: {
-            srcs: ["arm/lib/hw/audio.primary.redroid.so"],
+            srcs: ["arm/audio.primary.redroid.so"],
         },
         arm64: {
-            srcs: ["aarch64/lib/hw/audio.primary.redroid.so"],
+            srcs: ["aarch64/audio.primary.redroid.so"],
         },
     },
 
